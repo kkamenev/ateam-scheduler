@@ -1,13 +1,25 @@
-import {TaskScheduleType, TaskType} from "../../../src/tasks/enums";
+
+export enum TaskScheduleType { IMMEDIATE = 'IMMEDIATE', SCHEDULED_ONCE = 'SCHEDULED_ONCE', SCHEDULED_CRON = 'SCHEDULED_CRON' }
+export enum TaskType { MAIL = 'MAIL', DATA_SYNC = 'DATA_SYNC' }
 
 export type Task = {
 
-  _id: string;
+  _id?: string;
   name: string;
-  params: any;
   type: TaskType;
   scheduleType: TaskScheduleType;
-  scheduledTime: Date;
-  cronSchedule: string;
+  scheduledTime?: Date;
+  cronSchedule?: string;
+  params?: any;
 
+}
+
+export function newTask(): Task {
+  return {
+    name: 'New task',
+    type: TaskType.MAIL,
+    scheduleType: TaskScheduleType.SCHEDULED_CRON,
+    scheduledTime: new Date(),
+    cronSchedule: '*    *    *    *    *    *'
+  }
 }
