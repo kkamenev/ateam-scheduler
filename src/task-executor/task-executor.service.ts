@@ -118,12 +118,13 @@ export class TaskExecutorService {
     const job = this.jobByTaskId.get(taskId);
     if (job) {
       job.cancel();
+      this.jobByTaskId.delete(taskId);
     }
-    this.taskQueue = this.taskQueue.filter(task => task._id !== taskId);
+    this.taskQueue = this.taskQueue.filter(task => task._id.toString() !== taskId);
   }
 
   private onTaskUpdated(task: TaskDocument) {
-    this.onTaskDeleted(task._id);
+    this.onTaskDeleted(task._id.toString());
     this.scheduleOrExecuteTask(task);
   }
 
