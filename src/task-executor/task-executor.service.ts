@@ -1,8 +1,9 @@
 import {TaskService} from "../tasks/task.service";
 import {Inject, Injectable} from "@nestjs/common";
-import {TaskDocument, TaskScheduleType, TaskType} from "../tasks/task";
 import {sendMail, syncData} from "./tasks";
 import {Job} from "node-schedule";
+import {TaskDocument} from "../tasks/task";
+import {TaskScheduleType, TaskType} from "../tasks/enums";
 
 const scheduler = require('node-schedule');
 

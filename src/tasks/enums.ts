@@ -1,0 +1,2 @@
+export enum TaskScheduleType { IMMEDIATE = 'IMMEDIATE', SCHEDULED_ONCE = 'SCHEDULED_ONCE', SCHEDULED_CRON = 'SCHEDULED_CRON' }
+export enum TaskType { MAIL = 'MAIL', DATA_SYNC = 'DATA_SYNC' }

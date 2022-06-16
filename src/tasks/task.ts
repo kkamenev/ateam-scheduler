@@ -1,10 +1,8 @@
 import {Document} from "mongoose";
 import {Prop, Schema, SchemaFactory} from "@nestjs/mongoose";
+import {TaskScheduleType, TaskType} from "./enums";
 
 export type TaskDocument = Task & Document
-
-export enum TaskScheduleType { IMMEDIATE = 'IMMEDIATE', SCHEDULED_ONCE = 'SCHEDULED_ONCE', SCHEDULED_CRON = 'SCHEDULED_CRON' }
-export enum TaskType { MAIL = 'MAIL', DATA_SYNC = 'DATA_SYNC' }
 
 @Schema()
 export class Task {
